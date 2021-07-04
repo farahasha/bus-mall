@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: 'https://j.gifs.com/KrZl8X.gif';
+    background-size: cover;
+}
+
+img{
+    display: inline-block;
+}
+
+#one {
+    float: left;
+    width: 50%;
+
+}
+#two{
+    text-align: center;
+  width: 50%;
+
+}
+ 
+#three{
+    float: right;
+    width: 50%;
+}
+
+ul{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+button{
+    background-color: aquamarine;
+}
