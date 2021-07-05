@@ -104,7 +104,7 @@ leftIndex= generateRandomIndex();
                 ul.appendChild(li);
                 li.textContent = `${Bus.globArr[i].name}  VOTES ${Bus.globArr[i].votes} SEE ${Bus.globArr[i].see}`   
             }
-        
+
         }
   
     }
