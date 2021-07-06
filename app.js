@@ -185,3 +185,19 @@ let myChart = new Chart(ctx, {
 }
 
 
+function saveTols(){
+    const convertedArr=JSON.stringify(Bus.globArr);
+    localStorage.setItem('left',convertedArr);
+
+}
+
+function getLocalStorage(){
+    const dat=localStorage.getItem('left');
+    console.log(dat);
+    const add=JSON.parse(dat);
+    console.log(add);
+    if(add){
+        Bus.globArr = add;
+        renderThreeImages();
+    }
+}
