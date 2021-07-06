@@ -112,7 +112,7 @@ function handleClick(event) {
         function handleSee(){
             renderList();
             gittingChart();
-        but.removeEventListener('click',handleClick)
+        but.removeEventListener('click',handleSee)
 
         
     }
