@@ -10,7 +10,7 @@ const maxAttempts = 25;
 let counter = 0;
 
 let arrOfName=[];
-let arrOfVotes=[];
+ let arrOfVotes=[];
 let arrOfSee=[];
 
 function Bus(name, source) {
@@ -52,7 +52,7 @@ let rightIndex;
 
 function generateRandomIndex() {
     return Math.floor(Math.random() * Bus.globArr.length);
-
+    
 }
 
 
@@ -60,7 +60,8 @@ function renderThreeImages() {
     leftIndex = generateRandomIndex();
     middleIndex = generateRandomIndex();
     rightIndex = generateRandomIndex();
-
+    
+    
     while (leftIndex === middleIndex || leftIndex === rightIndex || middleIndex === rightIndex || Row.includes("leftIndex") || Row.includes("middleIndex") || Row.includes("rightIndex") ) {
         leftIndex = generateRandomIndex();
         middleIndex = generateRandomIndex();
@@ -69,16 +70,16 @@ function renderThreeImages() {
     Row=[];
     Row.push(leftIndex ,middleIndex ,rightIndex);
     console.log(Row);
-   
+    
     
     leftImageElement.src = Bus.globArr[leftIndex].source;
     middleImageElement.src = Bus.globArr[middleIndex].source;
     rightImageElement.src = Bus.globArr[rightIndex].source;
-
+    
     Bus.globArr[leftIndex].see++;
     Bus.globArr[middleIndex].see++;
     Bus.globArr[rightIndex].see++;
-
+    
 }
 
 renderThreeImages();
@@ -88,9 +89,9 @@ lis.addEventListener('click', handleClick);
 let but;
 function handleClick(event) {
     counter++;
-
-
-
+    
+    
+    // ********
     if (maxAttempts >= counter) {
         if (event.target.id === 'left') {
             Bus.globArr[leftIndex].votes++;
@@ -98,24 +99,24 @@ function handleClick(event) {
             Bus.globArr[middleIndex].votes++;
         } else if (event.target.id === 'right') {
             Bus.globArr[rightIndex].votes++;
-
+            
         }
         renderThreeImages();
     }
     else {
     }
-
-    const but = document.getElementById('but');
+    
+    but = document.getElementById('but');
     but.addEventListener('click', handleSee);
-
-
-        function handleSee(){
-            renderList();
-            gittingChart();
+}
+    
+function handleSee(){
+        renderList();
+        gittingChart();
         but.removeEventListener('click',handleSee)
-
-        
     }
+    
+    
     
     function renderList() {
         const ul = document.getElementById('List');
@@ -123,17 +124,25 @@ function handleClick(event) {
             arrOfVotes.push(Bus.globArr[i].votes);
             arrOfSee.push(Bus.globArr[i].see);
             let li = document.createElement('li');
-            ul.appendChild(li);
             li.textContent = `${Bus.globArr[i].name}  VOTES ${Bus.globArr[i].votes} SEE ${Bus.globArr[i].see}`
+            ul.appendChild(li);
         }
-        
-    }
-    
-}
-
+        // function vote() {
+            //     if(typeof(Storage) !== "undefined") {
+                //       if (localStorage.clickhandel) {
+                    //         localStorage.clickhandel = Number(localStorage.clickcount)+1;
+                    //       } else {
+                        //         localStorage.clickhandel = 1;
+                        //       }
+                        //       document.getElementById("vote"). + localStorage.clickcount + " time(s).";
+                        //     } else {
+                            //       document.getElementById("vote").
+                        }
+                        
+                        
 
 function gittingChart(){
-let ctx = document.getElementById('myChart')
+let ctx = document.getElementById('myChart').getContext('2d');
 let myChart = new Chart(ctx, {
     type: 'polarArea',
     data: {
@@ -171,13 +180,7 @@ let myChart = new Chart(ctx, {
             borderWidth: 1
         }]
     },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+    
 });
 }
 
