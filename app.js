@@ -127,17 +127,7 @@ function handleSee(){
             li.textContent = `${Bus.globArr[i].name}  VOTES ${Bus.globArr[i].votes} SEE ${Bus.globArr[i].see}`
             ul.appendChild(li);
         }
-        // function vote() {
-            //     if(typeof(Storage) !== "undefined") {
-                //       if (localStorage.clickhandel) {
-                    //         localStorage.clickhandel = Number(localStorage.clickcount)+1;
-                    //       } else {
-                        //         localStorage.clickhandel = 1;
-                        //       }
-                        //       document.getElementById("vote"). + localStorage.clickcount + " time(s).";
-                        //     } else {
-                            //       document.getElementById("vote").
-                        }
+    }
                         
                         
 
@@ -192,16 +182,16 @@ function saveTols(){
 
 }
 
-function getLocalStorage(){
+function getStorage(){
     const dat=localStorage.getItem('img');
      console.log(dat);
-    const add=JSON.parse(dat);
-    console.log(add);
-    if(add){
-        new Bus(add.name,add.source,add.votes,add.see)
-        console.log('');
+    const convertedArr2=JSON.parse(dat);
+    if(convertedArr2){
+        new Bus(convertedArr2.name,convertedArr2.source,convertedArr2.votes,convertedArr2.see)
+        console.log('........');
         console.log(Bus.globArr);
-         Bus.globArr = add;
+        Bus.globArr = convertedArr2;
         renderThreeImages();
     }
+
 }
