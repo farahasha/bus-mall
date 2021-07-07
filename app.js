@@ -187,17 +187,21 @@ let myChart = new Chart(ctx, {
 
 function saveTols(){
     const convertedArr=JSON.stringify(Bus.globArr);
-    localStorage.setItem('left',convertedArr);
+    console.log('lenght'+convertedArr.length);
+    localStorage.setItem('img',convertedArr);
 
 }
 
 function getLocalStorage(){
-    const dat=localStorage.getItem('left');
-    console.log(dat);
+    const dat=localStorage.getItem('img');
+     console.log(dat);
     const add=JSON.parse(dat);
     console.log(add);
     if(add){
-        Bus.globArr = add;
+        new Bus(add.name,add.source,add.votes,add.see)
+        console.log('');
+        console.log(Bus.globArr);
+         Bus.globArr = add;
         renderThreeImages();
     }
 }
