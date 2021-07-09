@@ -127,8 +127,11 @@ function handleSee(){
             li.textContent = `${Bus.globArr[i].name}  VOTES ${Bus.globArr[i].votes} SEE ${Bus.globArr[i].see}`
             ul.appendChild(li);
         }
+
+        saveTols();
     }
-                        
+
+    getStorage();                    
                         
 
 function gittingChart(){
@@ -184,7 +187,7 @@ function saveTols(){
 
 function getStorage(){
     const dat=localStorage.getItem('img');
-     console.log(dat);
+    //  console.log(dat);
     const convertedArr2=JSON.parse(dat);
     if(convertedArr2){
         new Bus(convertedArr2.name,convertedArr2.source,convertedArr2.votes,convertedArr2.see)
