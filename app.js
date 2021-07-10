@@ -109,14 +109,15 @@ function handleClick(event) {
     but = document.getElementById('but');
     but.addEventListener('click', handleSee);
 }
+
     
 function handleSee(){
-        renderList();
+    renderList();
         gittingChart();
         but.removeEventListener('click',handleSee)
     }
     
-    
+
     
     function renderList() {
         const ul = document.getElementById('List');
@@ -128,12 +129,15 @@ function handleSee(){
             li.textContent = `${Bus.globArr[i].name}  VOTES ${Bus.globArr[i].votes} SEE ${Bus.globArr[i].see}`
             ul.appendChild(li);
 
-        saveTols();
     }
 
-    getStorage();                    
+    saveTols();
 
-                        }
+
+   
+}
+                        getStorage();                    
+
                         
 
 function gittingChart(){
@@ -198,8 +202,8 @@ function getStorage(){
         console.log(Bus.globArr);
         Bus.globArr = convertedArr2;
 
-    console.log('length:'+convertedArr.length)
-    localStorage.setItem('left',convertedArr);
+    console.log('length:'+convertedArr2.length)
+    localStorage.setItem('left',convertedArr2);
 
 }
 
