@@ -120,7 +120,8 @@ function handleSee(){
     
     function renderList() {
         const ul = document.getElementById('List');
-        for (let i = 0; i < Bus.globArr.length; i++) {
+        for (let i = 0; i < Bus.globArr.length; i++) 
+        {
             arrOfVotes.push(Bus.globArr[i].votes);
             arrOfSee.push(Bus.globArr[i].see);
             let li = document.createElement('li');
