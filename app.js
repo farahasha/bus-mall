@@ -127,16 +127,6 @@ function handleSee(){
             li.textContent = `${Bus.globArr[i].name}  VOTES ${Bus.globArr[i].votes} SEE ${Bus.globArr[i].see}`
             ul.appendChild(li);
         }
-        // function vote() {
-            //     if(typeof(Storage) !== "undefined") {
-                //       if (localStorage.clickhandel) {
-                    //         localStorage.clickhandel = Number(localStorage.clickcount)+1;
-                    //       } else {
-                        //         localStorage.clickhandel = 1;
-                        //       }
-                        //       document.getElementById("vote"). + localStorage.clickcount + " time(s).";
-                        //     } else {
-                            //       document.getElementById("vote").
                         }
                         
                         
@@ -187,17 +177,26 @@ let myChart = new Chart(ctx, {
 
 function saveTols(){
     const convertedArr=JSON.stringify(Bus.globArr);
+    console.log('length:'+convertedArr.length)
     localStorage.setItem('left',convertedArr);
 
 }
 
 function getLocalStorage(){
     const dat=localStorage.getItem('left');
-    console.log(dat);
+    const convertedArr2 = JSON.parse(dat);
+    if (convertedArr2){
+        new Bus(convertedArr2.name,convertedArr2.source,convertedArr2.votes,convertedArr2.see)
+    console.log('');
+    console.log(Bus.globArr);
+    Bus.globArr=convertedArr2;
+
+        // console.log(dat);
     const add=JSON.parse(dat);
     console.log(add);
     if(add){
         Bus.globArr = add;
         renderThreeImages();
     }
+}
 }
