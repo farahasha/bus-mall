@@ -202,6 +202,7 @@ function getStorage(){
 
 }
 
+}
 function getLocalStorage(){
     const dat=localStorage.getItem('left');
     const convertedArr2 = JSON.parse(dat);
